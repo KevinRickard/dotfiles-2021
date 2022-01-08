@@ -245,7 +245,6 @@ defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool tr
 # Show sound in menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
-
 brew install --cask spotify
 brew install --cask sublime-text
 # sublime text setup, change font size to 15, change background color on default theme, hide minimap from view menu
@@ -281,6 +280,7 @@ brew install --cask sensiblesidebuttons
 brew install --cask transmission
 brew install --cask aldente
 brew install youtube-dl
+brew install gh
 
 # install ubiquiti unifi
 brew install --cask temurin8
@@ -288,6 +288,8 @@ brew tap homebrew/cask-drivers
 brew install --cask ubiquiti-unifi-controller
 
 git clone https://github.com/google/fonts.git ~/Library/Fonts/google-fonts
+
+mkdir $HOME/bin
 
 # sign in to app store
 # install pixelmator from app store
