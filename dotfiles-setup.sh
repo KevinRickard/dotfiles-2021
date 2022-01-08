@@ -1,35 +1,26 @@
-# Allow use of comments in interactive session (for copy and paste from this document)
-echo "setopt interactivecomments" >> ~/.zshrc
+# terminal setup, change text size and colors (to be brighter) by file
 
-source ~/.zshrc
-
-# set up sudo, may or may not actually work
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+# paste in .zshrc
+# paste in .zshenv
+# open new terminal
 
 # install brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
 # perform brew manual next steps listed in the output
 
-# set up refaults
+# needed for refaults
 brew install diffutils
-# switch to a new terminal for diffutils to take effect
-echo 'alias refaultswrite="defaults read > /Users/kevin/.refaults.json"' >> ~/.zshenv
-echo 'alias refaults="diff --color /Users/kevin/.refaults.json <(defaults read)"' >> ~/.zshenv
-echo 'alias r="refaults"' >> ~/.zshenv
-echo 'alias rw="refaultswrite"' >> ~/.zshenv
 
-# aliases
-echo "alias l='ls -lah'" >> ~/.zshenv
-
-source ~/.zshenv
+brew install romkatv/powerlevel10k/powerlevel10k
+# Switch to a new terminal and set up powerlevel10k
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
 # dns setup
-networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
+# WARNING: This (or something else here) broke something intermittantly, requiring random restarts to fix DNS
+# networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
 
 # when you close a window it will not ask if you want to save, it will just save
 defaults write "Apple Global Domain" NSCloseAlwaysConfirmsChanges -int 1
@@ -257,6 +248,7 @@ defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool tr
 
 brew install --cask spotify
 brew install --cask sublime-text
+# sublime text setup, change font size to 15, change background color on default theme, hide minimap from view menu
 
 brew install git
 brew install wget
@@ -287,19 +279,18 @@ brew install --cask steam
 brew install --cask grandperspective
 brew install --cask sensiblesidebuttons
 brew install --cask transmission
-brew install --cask topnotch
+brew install --cask aldente
+brew install youtube-dl
 
 # install ubiquiti unifi
 brew install --cask temurin8
 brew tap homebrew/cask-drivers
 brew install --cask ubiquiti-unifi-controller
 
-brew install romkatv/powerlevel10k/powerlevel10k
-echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
-# Switch to a new terminal and set up powerlevel10k
-
 git clone https://github.com/google/fonts.git ~/Library/Fonts/google-fonts
 
 # sign in to app store
 # install pixelmator from app store
 # update apps as necessary from app store
+
+# Get files from other laptop
